@@ -38,5 +38,13 @@ export function createApp(config: RigConfig = loadConfig()) {
     );
   });
 
+  // Same readNight rows, same order as the page (ADR 0001): never re-sort or filter here.
+  app.get('/api/digest/:night', (c) => {
+    const night = c.req.param('night');
+    const data = readNight(config.runsDir, night);
+    if (!data) return c.json({ error: 'no such night', night }, 404);
+    return c.json({ night, rows: data.rows, badLines: data.badLines });
+  });
+
   return app;
 }
