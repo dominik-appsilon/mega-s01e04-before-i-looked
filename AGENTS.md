@@ -28,7 +28,27 @@ Read first: `docs/vision.md`, `docs/styleguide.md`. Decisions: `docs/adr/`.
    ```
 
 5. An issue is closed only when its "Done when" holds. If it can't hold yet, leave it open and
-   say what it waits on.
+   say what it waits on. Read "Done when" as the person on the other side will: a step that
+   hands work to someone else (a review, a preview) holds when they confirm, not when you send.
+
+## What every issue carries
+
+Labelled `plan:<plan name>` (from the plan's frontmatter). The body, in this order:
+
+```
+Source: plan.md § <n>
+
+## Scope
+<what to build, from that section; nothing the plan doesn't say>
+
+## Done when
+<the section's "Done when", checkable>
+
+## Blocked by
+#<n> (what exactly it needs from it) / —
+```
+
+The first line and the label are how the reviewer sorts issues; keep them exact.
 
 ## Skills
 
