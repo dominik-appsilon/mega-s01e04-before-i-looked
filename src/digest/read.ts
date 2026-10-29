@@ -6,7 +6,7 @@ type RunLine = { at: string; job: string; status: RunStatus; owner: string | nul
 
 const STATUSES: readonly string[] = ['ok', 'retry', 'fail'];
 
-function parseLine(text: string): RunLine | null {
+export function parseLine(text: string): RunLine | null {
   let v: unknown;
   try {
     v = JSON.parse(text);
